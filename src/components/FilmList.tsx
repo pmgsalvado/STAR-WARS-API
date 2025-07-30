@@ -30,13 +30,13 @@ export default function FilmList(){
   
 
   const filmListElement = (data.allFilms.films as FILMS[]).map(film =>
-    <tr key={decodeURIComponent(film.id)} className={styles.trow}>
+    <tr key={film.id} className={styles.trow}>
       <td>
         <Link href={`pages/${film.id}`}>
           {film.title}
         </Link>
       </td>
-      <td>{decodeURIComponent(film.id)}</td>
+      
     </tr>
     
     )
@@ -47,7 +47,7 @@ export default function FilmList(){
         <thead>
           <tr>
             <th>Film Name</th>
-            <th>ID</th>
+            
           </tr>
         </thead>
         <tbody>
