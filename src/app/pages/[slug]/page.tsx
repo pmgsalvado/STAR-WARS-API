@@ -8,7 +8,6 @@ export default async function Film({params,}
     const { slug } = await params
   return (
     <div>
-      <h2>Teste page {decodeURIComponent(slug)}</h2>
       <FilmInfo film_id={slug} />
     </div>
   )
