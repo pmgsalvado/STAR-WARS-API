@@ -125,7 +125,7 @@ export default function FilmList(){
           {films.map(({node}) => (
             <tr key={node.id} className={styles.trow}>
               <td>
-                <Link href={`pages/${node.id}`}>
+                <Link href={`pages/films/${node.id}`}>
                   {node.title}
                 </Link>
               </td>

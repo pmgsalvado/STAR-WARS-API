@@ -16,10 +16,11 @@
   margin-bottom: 8px;
 }
 
-.description {
+.genetal {
   font-size: 1.1rem;
   color: #555;
   margin-bottom: 16px;
+  border-bottom: 1px solid #eee;
 }
 
 .planetsList {
@@ -48,4 +49,23 @@
   padding: 4px 0;
   border-bottom: 1px solid #eee;
   font-size: 1rem;
+}
+
+.listTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 16px 0 8px 0;
+  color: #fafafa;
+}
+
+.itemsList {
+  list-style: disc inside;
+  padding-left: 20px;
+  margin: 0 0 16px 0;
+}
+
+.itemsList li {
+  font-size: 1rem;
+  padding: 6px 0;
+  color: #e0e0e0;
 }
