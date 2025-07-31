@@ -66,3 +66,11 @@
 .table tr {
   cursor: pointer;
 }
+
+.loadButton {
+  border-radius: 5px;
+  background-color: #333030;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  padding: 5px;
+}
