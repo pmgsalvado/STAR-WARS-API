@@ -53,7 +53,19 @@ export default function PlanetInfo({planetId}: PlanetInfoProps){
   const diameter = data.planet?.diameter ?? "";
 
   return (
-    <div className={styles.page}>
+    
+    <div className={styles.collapsibleCard}>
+      <h1 className={styles.collapsibleHeader}>Teste</h1>
+    </div>
+
+
+  )
+
+}
+
+
+
+/* <div className={styles.page}>
       <h1 className={styles.title}>{name}</h1>
       <p className={styles.genetal}>Orbital Period: {orbitalPeriod}</p>
       <p className={styles.genetal}>Population: {population}</p>
@@ -62,7 +74,4 @@ export default function PlanetInfo({planetId}: PlanetInfoProps){
       <p className={styles.genetal}>Gravity: {gravity}</p>
       <p className={styles.genetal}>Surface Water: {surfaceWater}</p>
       <p className={styles.genetal}>Diamter: {diameter}</p>
-    </div>
-  )
-
-}
+    </div> */

@@ -8,7 +8,7 @@ export default async function Film({params,}
     const { slug } = await params
   return (
     <div>
-      <FilmInfo film_id={slug} />
+      <FilmInfo filmId={slug} />
     </div>
   )
 }

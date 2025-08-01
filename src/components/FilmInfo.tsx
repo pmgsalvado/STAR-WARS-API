@@ -55,6 +55,7 @@ interface FilmInfoProps {
 export default function FilmInfo({filmId}: FilmInfoProps){
 
   const decodedId = decodeURIComponent(filmId)
+  console.log(decodedId)
   const {loading, error, data} = useQuery(GET_FILM_INFO, {
     variables: {id: decodedId},
     fetchPolicy: "network-only",
