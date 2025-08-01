@@ -2,6 +2,7 @@
 
 import { gql, useQuery } from "@apollo/client"
 import styles from "./Info.module.css"
+import { useState } from "react";
 
 const GET_PLANET_INFO = gql`
   query getPlanetInfo($id: ID){
@@ -34,9 +35,11 @@ interface PlanetInfoProps {
 
 export default function PlanetInfo({planetId}: PlanetInfoProps){
 
-  const decodedId = decodeURIComponent(planetId);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const decodedPlanetId = decodeURIComponent(planetId);
   const {loading, error, data} = useQuery(GET_PLANET_INFO, {
-    variables: {id: planetId}
+    variables: {id: decodedPlanetId}
   }
   );
 
@@ -54,24 +57,23 @@ export default function PlanetInfo({planetId}: PlanetInfoProps){
 
   return (
     
-    <div className={styles.collapsibleCard}>
-      <h1 className={styles.collapsibleHeader}>Teste</h1>
+    <div className={`${styles.collapsibleCard} ${isOpen ? styles.open : ''}`}>
+      <div className={styles.collapsibleHeader} onClick={() => setIsOpen(!isOpen)}>
+        {name}
+        <span className={`${styles.collapsibleArrow} ${isOpen ? styles.open : ""}`}>{'›'}</span>
+      </div>
+      {isOpen && (
+        <div className={styles.collapsibleContent}>
+          <p className={styles.genetal}>Orbital Period: {orbitalPeriod}</p>
+          <p className={styles.genetal}>Population: {population}</p>
+          <p className={styles.genetal}>Terrains: {terrains}</p>
+          <p className={styles.genetal}>Climates: {climates}</p>
+          <p className={styles.genetal}>Gravity: {gravity}</p>
+          <p className={styles.genetal}>Surface Water: {surfaceWater}</p>
+          <p className={styles.genetal}>Diamter: {diameter}</p>
+        </div>
+      )}
     </div>
-
-
   )
-
 }
 
-
-
-/* <div className={styles.page}>
-      <h1 className={styles.title}>{name}</h1>
-      <p className={styles.genetal}>Orbital Period: {orbitalPeriod}</p>
-      <p className={styles.genetal}>Population: {population}</p>
-      <p className={styles.genetal}>Terrains: {terrains}</p>
-      <p className={styles.genetal}>Climates: {climates}</p>
-      <p className={styles.genetal}>Gravity: {gravity}</p>
-      <p className={styles.genetal}>Surface Water: {surfaceWater}</p>
-      <p className={styles.genetal}>Diamter: {diameter}</p>
-    </div> */

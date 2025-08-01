@@ -69,3 +69,51 @@
   padding: 6px 0;
   color: #e0e0e0;
 }
+
+.collapsibleCard {
+  max-width: 500px;
+  background: #2c2929;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  margin: 40px auto;
+  margin-bottom: 18px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.collapsibleHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 16px 20px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #fafafa;
+  background: #393636;
+  border-bottom: 1px solid #444;
+  user-select: none;
+}
+
+.collapsibleArrow {
+  margin-right: 12px;
+  transition: transform 0.2s;
+  font-size: 1.2rem;
+  color: #e0e0e0;
+}
+
+.collapsibleCard.open .collapsibleArrow.open {
+  transform: rotate(90deg);
+}
+
+.collapsibleContent {
+  padding: 16px 20px;
+  color: #e0e0e0;
+  background: #2c2929;
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px);}
+  to { opacity: 1; transform: translateY(0);}
+}
