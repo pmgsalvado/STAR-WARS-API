@@ -1,56 +1,9 @@
 "use client"
-import { gql, useQuery } from "@apollo/client";
+import useFilmInfo from "./useFilmInfo";
 import styles from "../Info.module.css"
 import Link from "next/link";
 
-// query definition
-const GET_FILM_INFO = gql`
-  query getFilmInfo($id: ID){
-    film(id: $id){
-          id
-          title
-          producers
-          planetConnection{
-            planets {
-              id
-              name
-            }
-          }
-          characterConnection{
-            characters {
-              id
-              name
-            }
-          }
-        }
-  }
-`;
-
 // variable type definition
-interface PLANET {
-  id: string;
-  name: string;
-}
-
-interface CHARACTER {
-  id: string;
-  name: string;
-}
-
-interface FILMS {
-  id: string;
-  title: string;
-  producers: string[];
-  planetConnection: {
-    planets: PLANET[]
-  }
-  characterConnection: {
-    characters: CHARACTER[]
-  }
-
-}
-
-
 interface FilmInfoProps {
   filmId: string;
 }
@@ -58,27 +11,24 @@ interface FilmInfoProps {
 export default function FilmInfo({filmId}: FilmInfoProps){
 
   const decodedId = decodeURIComponent(filmId)
-  console.log(decodedId)
-  const {loading, error, data} = useQuery(GET_FILM_INFO, {
-    variables: {id: decodedId},
-    fetchPolicy: "network-only",
-  })
+  
+  const { loading, error, film} = useFilmInfo(decodedId)
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error: {error.message}</p>
-
+  if (!film) return <p>No film found</p>
   
 
-  const title = data.film.title;
-  const producersList = (data.film.producers).map( (producer: string, index: number) => <li key={index}>{producer}</li>)
-  const planetList = (data.film.planetConnection.planets as PLANET[]).map( planet => 
+  const title = film?.title;
+  const producersList = (film.producers).map( (producer: string, index: number) => <li key={index}>{producer}</li>)
+  const planetList = (film.planetConnection.planets).map( planet => 
     <li key={planet.id}>
       <Link href={`/pages/planet/${planet.id}`}>
         {planet.name}  {planet.id}
       </Link>
       </li> 
   )
-  const characterList = (data.film.characterConnection.characters as CHARACTER[]).map(character => 
+  const characterList = (film.characterConnection.characters).map(character => 
     <li key={character.id}>
       <Link href={`/pages/character/${character.id}`}>
         {character.name}
@@ -104,3 +54,7 @@ export default function FilmInfo({filmId}: FilmInfoProps){
     </div>
   )
 }
+
+
+
+
