@@ -1,4 +1,4 @@
-import PlanetInfo from "@/components/PlanetInfo"
+import PlanetInfo from "@/components/planetInfo/PlanetInfo"
 export default async function Planet(
   {params,}
    : {params: Promise<{id: string}>}){

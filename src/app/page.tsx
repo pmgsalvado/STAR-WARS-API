@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "./page.module.css";
 
 import { useQuery, gql } from "@apollo/client";
-import FilmList from "@/components/FilmList"
+import FilmList from "@/components/filmList/FilmList"
 
 
 

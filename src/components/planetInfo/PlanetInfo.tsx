@@ -1,7 +1,7 @@
 "use client"
 
 import { gql, useQuery } from "@apollo/client"
-import styles from "./Info.module.css"
+import styles from "../Info.module.css"
 import { useState } from "react";
 
 const GET_PLANET_INFO = gql`

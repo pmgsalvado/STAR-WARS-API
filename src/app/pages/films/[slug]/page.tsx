@@ -1,6 +1,6 @@
 
 
-import FilmInfo from "@/components/FilmInfo"
+import FilmInfo from "@/components/filmInfo/FilmInfo"
 
 export default async function Film({params,}
    : {params: Promise<{slug: string}>}){

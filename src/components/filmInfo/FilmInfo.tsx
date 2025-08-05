@@ -1,6 +1,6 @@
 "use client"
 import { gql, useQuery } from "@apollo/client";
-import styles from "./Info.module.css"
+import styles from "../Info.module.css"
 import Link from "next/link";
 
 // query definition
@@ -44,6 +44,9 @@ interface FILMS {
   planetConnection: {
     planets: PLANET[]
   }
+  characterConnection: {
+    characters: CHARACTER[]
+  }
 
 }
 
@@ -77,7 +80,7 @@ export default function FilmInfo({filmId}: FilmInfoProps){
   )
   const characterList = (data.film.characterConnection.characters as CHARACTER[]).map(character => 
     <li key={character.id}>
-      <Link href="">
+      <Link href={`/pages/character/${character.id}`}>
         {character.name}
       </Link>
     </li>
