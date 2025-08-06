@@ -1,7 +1,6 @@
-import { gql, useQuery } from "@apollo/client";
+
 import Link from "next/link";
 import styles from "@/app/page.module.css";
-import { useEffect, useState } from "react";
 import useFIlmList from "./useFilmList";
 
 
