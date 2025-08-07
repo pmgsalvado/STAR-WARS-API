@@ -11,6 +11,12 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    files: ["**/*.test.js", "**/*.spec.js"], // or whatever file pattern you use for tests
+    env: {
+      jest: true,
+    },
+  },
 ];
 
 export default eslintConfig;

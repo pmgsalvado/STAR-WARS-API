@@ -1,25 +1,9 @@
 import { gql, useQuery } from "@apollo/client";
 
-/* // query definition  ( not breing used anymore)
-const GET_FILM = gql`
-  query {
-    allFilms{
-      films{
-        id
-        title
-        }
-      }
-}`;
-
-interface FILMS {
-  id: string;
-  title: string;
-} */
-
 // query definition with pagination
 const PAGE_SIZE = 2;
 
-const GET_FILM_SLICE = gql`
+export const GET_FILM_SLICE = gql`
   query ($first: Int!, $after: String){
     allFilms(first:$first, after: $after){
       edges {
