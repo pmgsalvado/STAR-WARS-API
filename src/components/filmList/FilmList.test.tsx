@@ -92,10 +92,6 @@ await waitFor(()=>{
  expect(screen.queryByText("Load More")).not.toBeInTheDocument(); 
 })
 
-
-
-
-
 const networkErrorMocks = [
   {
     request: {

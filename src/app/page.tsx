@@ -1,5 +1,5 @@
 "use client"
-import styles from "./page.module.css";
+import styles from "./page.module.css"
 import FilmList from "@/components/filmList/FilmList"
 //import React from "react";
 
