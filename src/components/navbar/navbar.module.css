@@ -1,0 +1,34 @@
+.navbarContainer {
+  width: 100%;
+  border-bottom: 2px solid #ffff; 
+}
+
+.navbarContainer ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0
+}
+
+.leftMenu,
+.rightMenu {
+  display: flex;
+  align-items: center;
+}
+
+.navbarContainer li {
+  float: left;
+}
+
+.navbarContainer li a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbarContainer li a:hover {
+  background-color: rgb(104, 104, 104);
+  border-radius: 5px;
+}

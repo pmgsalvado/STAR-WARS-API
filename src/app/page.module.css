@@ -46,31 +46,9 @@
   font-weight: 600;
 }
 
-.table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.table th,
-.table td {
-  border: 2px solid #333;
-  padding: 8px;
-  text-align: center;
-  
-}
-.table th {
-  font-weight: bold;
-  background-color: #0c0b0b;
-}
-
-.table tr {
-  cursor: pointer;
-}
-
-.loadButton {
-  border-radius: 5px;
-  background-color: #333030;
-  margin-top: 10px;
-  font-size: 1.2rem;
-  padding: 5px;
+.filmList_container{
+  padding-top: 10px;
+  align-items: center;
+  justify-items: center;
+  margin: 0 auto;
 }

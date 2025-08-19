@@ -117,3 +117,56 @@
   from { opacity: 0; transform: translateY(-8px);}
   to { opacity: 1; transform: translateY(0);}
 }
+
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th,
+.table td {
+  border: 2px solid #333;
+  padding: 8px;
+  text-align: center;
+  
+}
+.table th {
+  font-weight: bold;
+  background-color: #0c0b0b;
+}
+
+.table tr {
+  cursor: pointer;
+}
+
+.loadButton {
+  border-radius: 5px;
+  background-color: #333030;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  padding: 5px;
+}
+
+.alphabet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.alphabet_container{
+  display: grid;
+  width: auto;
+  grid-template: auto auto / repeat(10, 30px);
+  gap: 10px;
+}
+
+.alphabet_container button {
+  height: 30px;
+  width: 30px;
+  border-radius: 2px;
+  border: none;
+  background-color: darkgray;
+  cursor: pointer;
+  font-size: 1.2rem;
+}

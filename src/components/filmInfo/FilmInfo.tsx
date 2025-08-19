@@ -1,6 +1,6 @@
 "use client"
 import useFilmInfo from "./useFilmInfo";
-import styles from "../Info.module.css"
+import styles from "../components.module.css"
 import Link from "next/link";
 
 // variable type definition

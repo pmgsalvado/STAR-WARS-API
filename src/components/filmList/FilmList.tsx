@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import styles from "../../app/page.module.css";
+import styles from "../components.module.css";
 import useFIlmList from "./useFilmList";
 
 
@@ -29,7 +29,7 @@ export default function FilmList(){
           {allFilms?.edges.map(({node}) => (
             <tr key={node.id} className={styles.trow}>
               <td>
-                <Link href={`pages/films/${node.id}`}>
+                <Link href={`/pages/films/${node.id}`}>
                   {node.title}
                 </Link>
               </td>

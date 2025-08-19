@@ -2,6 +2,8 @@ import "./globals.css";
 
 // Apollo Client imports
 import { ApolloProviderWrapper } from "@/lib/ApolloProviderWrapper";
+import NavBar from "@/components/navbar/NavBar";
+
 
 export default function RootLayout({
   children,
@@ -20,6 +22,7 @@ export default function RootLayout({
            */}
       </head>
       <body>
+        <NavBar />
         <ApolloProviderWrapper>
           {children}
         </ApolloProviderWrapper>
