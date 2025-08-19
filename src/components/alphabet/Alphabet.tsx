@@ -1,7 +1,8 @@
 import styles from "@/components/components.module.css"
-const alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
 
-//const lettersArray = ["a", "b", "e"];
+
+const ALPHABET = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
+
 
 interface AlphabetProps {
   lettersArray: string[];
@@ -16,8 +17,8 @@ interface AlphabetStatus {
 export default function Alphabet({lettersArray, onClickHandler}: AlphabetProps){
   
   const alphabetLetterStatus: AlphabetStatus[] = [];
-  //console.log("alphabet componente", lettersArray)
-  alphabet.forEach(letter => {
+  
+  ALPHABET.forEach(letter => {
     if (lettersArray.includes(letter)){
       alphabetLetterStatus.push({
         letter: letter,

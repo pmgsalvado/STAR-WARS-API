@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import useCharacterList, {PEOPLE} from "./useCharacterList"
 import Alphabet from "../alphabet/Alphabet";
+
+
 export default function characterList(){
 
   // since this is just a test and the GRaphQl doesn´t have a schme to search only for a first letter
@@ -8,34 +10,32 @@ export default function characterList(){
   const [people, setPeople] = useState<PEOPLE[]>([])
   const [letter, setLetter] = useState<string>("")
   const {allPeople, loading, error} = useCharacterList();
-  //console.log(allPeople.length);
 
-
+  // to run when component rendered, and will change each time allPeople change (not going to happen)
   useEffect(()=>{
     if(allPeople){
       setPeople(allPeople)
-      
     }
   }, [allPeople])
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error: {error.message}</p>
   
+  // array first letter of each character-  with removed duplicates - to be used in the alphabet as prop
   const peopleFirstLetter = people ? Array.from(new Set(people.map(person => person.node.name[0]))) : []
   
-  
+  // set the letter selected in the Alphabet component
   function onClickHandler(letter: string){
     setLetter(letter)
   }
 
+  // if letter selected filter by first letter name so thar only the characters with thar letter show in the card list
+  // if not letter all characters appear on the list
   const characterFiltered = letter == "" ? people :
     people.filter(person => person.node.name[0] === letter)
 
+  // generate DOM element to be rendered
   const characterFilteredElement = characterFiltered.map(person => <li key={person.node.id}> {person.node.name}</li>)
-
-  console.log("filterd", characterFiltered)
-  // this is suppose to be inside handleclick to filter for the result according to letter clicked
-  //const allPeopleElements = people.map(person => <li key={person.node.id}> {person.node.name}</li>)
   
   return (
     <>
