@@ -6,7 +6,7 @@ import styles from "@/app/page.module.css"
 export default function FilmsList(){
 
     return (
-      <div className={styles.filmList_container}>
+      <div>
         <FilmList />
       </div>
     )

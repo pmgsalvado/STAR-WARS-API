@@ -14,7 +14,7 @@ export default function FilmList(){
   if (!allFilms) return <p>no Films</p>
 
   return (
-    <div>
+    <div className={styles.page}>
 
       {allFilms?.edges.length != 0 && (
       <table className={styles.table}>

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import useCharacterList, {PEOPLE} from "./useCharacterList"
 import Alphabet from "../alphabet/Alphabet";
-
-
+import styles from "@/components/components.module.css"
+import Link from "next/link";
 export default function characterList(){
 
-  // since this is just a test and the GRaphQl doesn´t have a schme to search only for a first letter
+  // since this is just a test and the GRaphQl doesn´t have a schema to search only for a first letter
   // and the amount of data is not that much we can save it locally
   const [people, setPeople] = useState<PEOPLE[]>([])
   const [letter, setLetter] = useState<string>("")
@@ -38,15 +38,22 @@ export default function characterList(){
   const characterFilteredElement = characterFiltered.map(person => <li key={person.node.id}> {person.node.name}</li>)
   
   return (
-    <>
+    <div className={styles.page}>
       <h1>CharacterList</h1>
       {people && 
         <Alphabet lettersArray={peopleFirstLetter} onClickHandler={onClickHandler}/>
       }
-      <p>List element below</p>
-      <ul>
-          {characterFilteredElement}
-      </ul>
-    </>
+      <p>Characters List:</p>
+      <div className={styles.card_container}>
+        {characterFiltered.map(person => 
+          <div key={person.node.id} className={styles.card}>
+            <Link href={`/pages/character/${person.node.id}`}>
+              {person.node.name}
+            </Link>
+            
+        </div>  
+        )}
+      </div>
+    </div>
   )
 }

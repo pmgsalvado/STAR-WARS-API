@@ -1,5 +1,5 @@
 "use client"
-import styles from "../Info.module.css"
+import styles from "../components.module.css"
 import useCharacterInfo from "./useCharacterInfo";
 
 interface CharacterInfoProps {
