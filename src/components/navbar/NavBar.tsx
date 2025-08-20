@@ -9,7 +9,7 @@ export default function NavBar(){
           <li><Link href="/">Star Wars</Link></li>
           <li><Link href={`/pages/filmsList/`}>Movies</Link></li>
           <li><Link href={`/pages/characterList/`}>Characters</Link></li>
-          <li><Link href="#">Planets</Link></li>
+          <li><Link href={`/pages/planetsList/`}>Planets</Link></li>
         </div>
         <div className={styles.rightMenu}>
           <li><Link href="#">Login</Link></li>
