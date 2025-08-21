@@ -1,7 +1,7 @@
 import {gql, useQuery} from "@apollo/client"
 
 
-const GET_PLANET_LIST = gql`
+export const GET_PLANET_LIST = gql`
   query{
     allPlanets{
       edges{
